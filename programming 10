@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+class Power {
+    int num;
+    int square;
+    int cube;
+
+public:
+    
+    Power() {
+        cout << "Enter a number: ";
+        cin >> num;
+        square = num * num;
+        cube = num * num * num;
+    }
+    void display() {
+        cout << "Number: " << num << endl;
+        cout << "Square: " << square << endl;
+        cout << "Cube: " << cube << endl;
+    }
+};
+
+int main() {
+    Power p; 
+    p.display();
+    return 0;
+}
