@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+class Numbers {
+    int arr[100], n;
+    int sum, count;
+
+public:
+    void input() {
+        cout << "Enter how many numbers: ";
+        cin >> n;
+        cout << "Enter numbers:" << endl;
+        for (int i = 0; i < n; ++i)
+            cin >> arr[i];
+        sum = 0;
+        count = 0;
+        for (int i = 0; i < n; ++i) {
+            if (arr[i] % 9 == 0) {
+                sum += arr[i];
+                count++;
+            }
+        }
+    }
+    // Friend function declaration
+    friend void showResult(Numbers);
+};
+
+void showResult(Numbers obj) {
+    cout << "Sum of numbers divisible by 9: " << obj.sum << endl;
+    cout << "Count of numbers divisible by 9: " << obj.count << endl;
+}
+
+int main() {
+    Numbers obj;
+    obj.input();
+    showResult(obj);
+    return 0;
+}
