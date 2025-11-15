@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+class Number {
+    int value;
+
+public:
+    Number(int v) : value(v) {}
+    Number operator-() {
+        return Number(-value);
+    }
+
+    void display() {
+        cout << "Value: " << value << endl;
+    }
+};
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    Number n(num);
+
+    cout << "Original ";
+    n.display();
+
+    Number neg = -n; 
+    cout << "Negated ";
+    neg.display();
+
+    return 0;
+}
