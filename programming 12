@@ -1,0 +1,48 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Book {
+    int id;
+    string title;
+    string author;
+
+public:
+    Book(int bookId, string bookTitle, string bookAuthor) {
+        id = bookId;
+        title = bookTitle;
+        author = bookAuthor;
+    }
+    Book(const Book &b) {
+        id = b.id;
+        title = b.title;
+        author = b.author;
+    }
+
+    void display() {
+        cout << "Book ID: " << id << endl;
+        cout << "Title: " << title << endl;
+        cout << "Author: " << author << endl;
+    }
+};
+
+int main() {
+    int id;
+    string title, author;
+    cout << "Enter book ID: ";
+    cin >> id;
+    cin.ignore();
+    cout << "Enter book title: ";
+    getline(cin, title);
+    cout << "Enter book author: ";
+    getline(cin, author);
+    Book book1(id, title, author);
+    Book book2 = book1;
+
+    cout << "\nOriginal Book Details:\n";
+    book1.display();
+
+    cout << "\nCopied Book Details:\n";
+    book2.display();
+
+    return 0;
