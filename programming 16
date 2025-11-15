@@ -1,0 +1,82 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base class 1
+class Person {
+protected:
+    string name;
+    int age;
+
+public:
+    void inputPerson() {
+        cout << "Enter name: ";
+        getline(cin, name);
+        cout << "Enter age: ";
+        cin >> age;
+        cin.ignore();
+    }
+};
+
+// Base class 2
+class Address {
+protected:
+    string city;
+    string country;
+
+public:
+    void inputAddress() {
+        cout << "Enter city: ";
+        getline(cin, city);
+        cout << "Enter country: ";
+        getline(cin, country);
+    }
+};
+
+class Student : public Person, public Address {
+protected:
+    int studentId;
+
+public:
+    void inputStudent() {
+        cout << "Enter student ID: ";
+        cin >> studentId;
+        cin.ignore();
+    }
+
+    void display() {
+        cout << "\nStudent Details:" << endl;
+        cout << "Name: " << name << endl;
+        cout << "Age: " << age << endl;
+        cout << "City: " << city << endl;
+        cout << "Country: " << country << endl;
+        cout << "Student ID: " << studentId << endl;
+    }
+};
+class Exam : public Student {
+    int marks;
+
+public:
+    void inputMarks() {
+        cout << "Enter marks: ";
+        cin >> marks;
+    }
+
+    void displayAll() {
+        display(); 
+        cout << "Marks: " << marks << endl;
+    }
+};
+
+int main() {
+    Exam e;
+
+    e.inputPerson();
+    e.inputAddress();
+    e.inputStudent();
+    e.inputMarks(); 
+
+    e.displayAll();
+
+    return 0;
+}
