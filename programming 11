@@ -1,0 +1,40 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Student {
+    int id;
+    string name;
+    int age;
+
+public:
+    Student(int studentId, string studentName, int studentAge) {
+        id = studentId;
+        name = studentName;
+        age = studentAge;
+    }
+
+    void display() {
+        cout << "Student ID: " << id << endl;
+        cout << "Student Name: " << name << endl;
+        cout << "Student Age: " << age << endl;
+    }
+};
+
+int main() {
+    int id;
+    string name;
+    int age;
+    cout << "Enter student ID: ";
+    cin >> id;
+    cin.ignore();
+    cout << "Enter student name: ";
+    getline(cin, name);
+    cout << "Enter student age: ";
+    cin >> age;
+    Student student(id, name, age);
+    cout << "\nStudent Details:\n";
+    student.display();
+
+    return 0;
+}
